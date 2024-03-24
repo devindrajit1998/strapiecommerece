@@ -7,11 +7,14 @@
           port: env.int('DATABASE_PORT'),
           database: env('DATABASE_NAME'),
           user: env('DATABASE_USERNAME'),
-          password: env('DATABASE_PASSWORD'), 
-          ssl: {
-            rejectUnauthorized: env.bool('DATABASE_SSL_SELF', false),
-          },
+          password: env('DATABASE_PASSWORD'),
+          ssl: env.bool('DATABASE_SSL', false) ? {
+            rejectUnauthorized: env.bool('DATABASE_SSL_REJECT_UNAUTHORIZED', true),
+            ca: env('DATABASE_SSL_CA'),
+          } : false,
         },
         debug: false,
       },
     });
+    
+    

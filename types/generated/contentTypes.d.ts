@@ -860,6 +860,7 @@ export interface ApiProfileProfile extends Schema.CollectionType {
     singularName: 'profile';
     pluralName: 'profiles';
     displayName: 'profile';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -869,7 +870,7 @@ export interface ApiProfileProfile extends Schema.CollectionType {
     about: Attribute.Text;
     role: Attribute.String;
     email: Attribute.String;
-    phone: Attribute.Integer;
+    phone: Attribute.BigInteger;
     address: Attribute.String;
     image: Attribute.Media;
     socialmedias: Attribute.Relation<
